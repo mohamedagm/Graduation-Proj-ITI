@@ -12,7 +12,20 @@
           "package_name": "com.example.iti_project"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "47431059902-bvd67ska4hp07jekvvmrhhb58e0rftvk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iti_project",
+            "certificate_hash": "2c584dab1a77940e2cc4d05cf37c96395e81a93c"
+          }
+        },
+        {
+          "client_id": "47431059902-egl38t15o4glc1rlmrm183clcunckdjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBj5sSe48e36enV_7cOgClVeqf7QB3DSjM"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47431059902-egl38t15o4glc1rlmrm183clcunckdjq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "47431059902-1jh9gd5503st3efmt9tno1220fare2dd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.itiProject"
+              }
+            }
+          ]
         }
       }
     }

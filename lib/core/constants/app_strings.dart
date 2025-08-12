@@ -28,6 +28,7 @@ class AppStrings {
   static const loginButtonSignIn = 'Sign In';
   static const loginNoAccount = "Don't have an account?";
   static const loginSignUpFree = 'Sign Up For Free';
+  static const loginSuccessMessage = 'Success Login';
 
   // register
   static const registerTitle = 'Register';
@@ -35,4 +36,13 @@ class AppStrings {
   static const registerButtonSignUp = 'Register';
   static const registerHaveAccount = 'Have an account?';
   static const registerLogin = 'Login';
+  static const registerSuccessMessage = 'Account Created Successfully';
+  //home
+  static const homeAppbartext1 = 'Store location';
+  static const homeAppbartext2 = '📍Egypt, naser city';
+  static const String homeSearchHint = 'Looking for shoes';
+  static const String homeNike = 'Nike';
+  //homeDetails
+  static const String homeDetailsPrice = 'Price';
+  static const String homeDetailsAddToCard = 'Add To Cart';
 }

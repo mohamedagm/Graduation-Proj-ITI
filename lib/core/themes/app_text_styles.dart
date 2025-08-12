@@ -61,4 +61,43 @@ abstract class AppTextStyles {
     fontSize: 20,
     color: Colors.white,
   );
+  //home
+  static const TextStyle homeAppbartext1 = TextStyle(
+    color: Colors.grey,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle homeAppbartext2 = TextStyle(
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle homeShoesName = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Color(0xff1A2530),
+  );
+  static const TextStyle homeShoesPrice = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: Color(0xff1A2530),
+  );
+  static const TextStyle kDetailsTitle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle kDetailsDesc = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w300,
+  );
+  static const TextStyle kDetailsShoesPrice = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: Color(0xff1A2530),
+  );
+  static const TextStyle kDetailsShoesInfo = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w800,
+    color: Colors.white,
+  );
 }
