@@ -1,10 +1,7 @@
 abstract class AppAssets {
-  // static const logo = 'assets/images/logo.svg';
-  // static const onBoarding1 = 'assets/images/onBoarding1.png';
-  // static const onBoarding2 = 'assets/images/onBoarding2.png';
-  // static const onBoarding3 = 'assets/images/onBoarding3.png';
-  // static const onBoarding4 = 'assets/images/onBoarding4.png';
-  // static const facebook = 'assets/icons/facebook.png';
-  // static const google = 'assets/icons/google.png';
-  // static const apple = 'assets/icons/apple.png';
+  static const onboardingImage1 = 'assets/images/shoes1.png';
+  static const onboardingImage2 = 'assets/images/shoes2.png';
+  static const onboardingImage3 = 'assets/images/shoes3.png';
+  static const onboardingNike = 'assets/images/nike.png';
+  static const googleIcon = 'assets/images/google.png';
 }

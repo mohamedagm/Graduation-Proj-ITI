@@ -1,54 +1,64 @@
-abstract class AppTextStyles {
-  // //Login
-  // static const TextStyle kAuthTitle = TextStyle(
-  //   fontSize: 40,
-  //   fontWeight: FontWeight.bold,
-  // );
-  // static const TextStyle kAuthSubtitle = TextStyle(
-  //   fontSize: 20,
-  //   fontWeight: FontWeight.w400,
-  // );
-  // static const TextStyle kForgotPassword = TextStyle(
-  //   fontSize: 20,
-  //   fontWeight: FontWeight.w700,
-  //   color: AppColors.kPrimaryColor,
-  // );
-  // static const TextStyle kSignUpHint = TextStyle(
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w400,
-  //   color: Colors.white70,
-  // );
-  // static const TextStyle kSignUpLink = TextStyle(
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w500,
-  //   color: AppColors.kPrimaryColor,
-  // );
+import 'package:flutter/material.dart';
+import 'package:iti_project/core/constants/app_colors.dart';
 
-  // static const TextStyle kButtonText = TextStyle(
-  //   fontSize: 20,
-  //   color: Colors.black87,
-  // );
-  // static const TextStyle kHomeSearch = TextStyle(
-  //   fontSize: 20,
-  //   color: Colors.grey,
-  // );
-  // static const TextStyle kHomeHello = TextStyle(
-  //   fontSize: 35,
-  //   color: Colors.black,
-  //   fontWeight: FontWeight.w700,
-  // );
-  // static const TextStyle kHomeSubHello = TextStyle(
-  //   fontSize: 25,
-  //   color: Colors.black,
-  //   fontWeight: FontWeight.w700,
-  // );
-  // static const TextStyle kHomeTitleItem = TextStyle(
-  //   fontSize: 20,
-  //   color: Colors.black87,
-  //   fontWeight: FontWeight.bold,
-  // );
-  // static const TextStyle kHomeDescItem = TextStyle(
-  //   color: Colors.grey,
-  //   fontWeight: FontWeight.w500,
-  // );
+abstract class AppTextStyles {
+  // splash
+  static final splashText1Style = TextStyle(
+    fontSize: 35,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+  static final splashText2Style = TextStyle(fontSize: 20, color: Colors.white);
+  static final splashText3Style = TextStyle(
+    color: Colors.white,
+    wordSpacing: 1,
+  );
+  // onBoarding
+  static final onBoardingTitleStyle = TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.w500,
+  );
+  static final onBoardingSubTitleStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: AppColors.khintColor,
+  );
+  static final onBoardingTextButton = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+  // login
+  static const TextStyle authTitleStyle = TextStyle(
+    fontSize: 35,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle authSubTitleStyle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: AppColors.khintColor,
+  );
+
+  static const TextStyle loginRecoveryPasswordStyle = TextStyle(
+    fontWeight: FontWeight.w400,
+    color: AppColors.khintColor,
+  );
+
+  static const TextStyle authAccountStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: AppColors.khintColor,
+  );
+
+  static const TextStyle authGoogleSignInStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Color(0xff1A2530),
+  );
+
+  static const TextStyle authButtonStyle = TextStyle(
+    fontSize: 20,
+    color: Colors.white,
+  );
 }
