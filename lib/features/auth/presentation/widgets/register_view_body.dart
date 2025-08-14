@@ -36,14 +36,22 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is AuthSuccess) {
           customSnackBar(
             context,
             AppStrings.registerSuccessMessage,
             backgroundColor: Colors.green,
           );
-          GoRouter.of(context).pushReplacement(AppRoutes.home);
+          if (state.user.additionalUserInfo!.isNewUser) {
+            GoRouter.of(
+              context,
+            ).pushReplacement(AppRoutes.setup, extra: state.user);
+          } else {
+            GoRouter.of(
+              context,
+            ).pushReplacement(AppRoutes.home, extra: state.user);
+          }
         } else if (state is AuthFailure) {
           customSnackBar(
             context,
@@ -117,12 +125,14 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                               )
                               : Text(
                                 AppStrings.registerButtonSignUp,
-                                style: AppTextStyles.authButtonStyle,
+                                style: AppTextStyles.textButtonStyle,
                               ),
                     ),
                     CustomButton(
                       backgroundColor: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<AuthCubit>().signInWithGoogleC();
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

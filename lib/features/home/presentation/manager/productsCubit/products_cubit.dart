@@ -9,7 +9,7 @@ part 'products_state.dart';
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit(this.dio) : super(ProductsInitial());
   final Dio dio;
-  getProducts() async {
+  getProductsC() async {
     emit(ProductsLoading());
     try {
       List<ProductModel> productList = [];

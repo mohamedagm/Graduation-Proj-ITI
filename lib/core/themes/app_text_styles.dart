@@ -57,7 +57,7 @@ abstract class AppTextStyles {
     color: Color(0xff1A2530),
   );
 
-  static const TextStyle authButtonStyle = TextStyle(
+  static const TextStyle textButtonStyle = TextStyle(
     fontSize: 20,
     color: Colors.white,
   );

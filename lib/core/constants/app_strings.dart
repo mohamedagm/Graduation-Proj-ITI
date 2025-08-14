@@ -37,6 +37,26 @@ class AppStrings {
   static const registerHaveAccount = 'Have an account?';
   static const registerLogin = 'Login';
   static const registerSuccessMessage = 'Account Created Successfully';
+  //setupProfile
+  // Buttons
+  static const String saveButton = 'Save✅';
+  static const String resetButton = 'Reset';
+
+  // SnackBars
+  static const String savedSuccess = 'Saved';
+  static const String savedFailure = 'Failed to save data';
+
+  // TextField Hints
+  static const String nameHint = 'Name';
+  static const String phoneHint = 'Phone Number';
+  static const String cityHint = 'City';
+  static const String ageHint = 'Age';
+  static const String genderHint = 'Gender';
+
+  // Image Placeholder
+  static const String setupDefImage =
+      'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?cs=srgb&dl=pexels-moh-adbelghaffar-771742.jpg&fm=jpg';
+
   //home
   static const homeAppbartext1 = 'Store location';
   static const homeAppbartext2 = '📍Egypt, naser city';

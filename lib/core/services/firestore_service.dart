@@ -1,30 +1,19 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
 
-// class FirestoreService {
-//   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-//   Future<void> saveUserData({
-//     required String uid,
-//     required String phone,
-//     required String email,
-//     required String name,
-//     required String date,
-//     required String gender,
-//     required String location,
-//     required String imageLink,
-//   }) async {
-//     await firestore.collection('users').doc(uid).set({
-//       'uid': uid,
-//       'phone': phone,
-//       'email': email,
-//       'name': name,
-//       'date': date,
-//       'gender': gender,
-//       'location': location,
-//       'imageLink': imageLink,
-//     }, SetOptions(merge: true));
-//   }
+class FirestoreService {
+  final FirebaseFirestore firestore;
+  const FirestoreService(this.firestore);
 
-//   Future<DocumentSnapshot<Map<String, dynamic>>> getUserData(String uid) {
-//     return firestore.collection('users').doc(uid).get();
-//   }
-// }
+  Future<void> saveUserData({required UserModel usermodel}) async {
+    await firestore
+        .collection('users')
+        .doc(usermodel.uid)
+        .set(usermodel.toMap());
+  }
+
+  Future<UserModel> getUserData(String uid) async {
+    final doc = await firestore.collection('users').doc(uid).get();
+    return UserModel.fromMap(doc.data()!);
+  }
+}

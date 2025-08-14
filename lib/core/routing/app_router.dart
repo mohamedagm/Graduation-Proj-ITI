@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
 import 'package:iti_project/features/auth/presentation/views/login_view.dart';
@@ -5,6 +6,7 @@ import 'package:iti_project/features/auth/presentation/views/register_view.dart'
 import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
 import 'package:iti_project/features/home/presentation/views/home_details_view.dart';
 import 'package:iti_project/features/home/presentation/views/home_view.dart';
+import 'package:iti_project/features/home/presentation/views/setup_profile_view.dart';
 import 'package:iti_project/features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'package:iti_project/features/onBoarding/presentation/views/splash_view.dart';
 
@@ -28,8 +30,18 @@ class AppRouter {
         builder: (context, state) => const RegisterView(),
       ),
       GoRoute(
+        path: AppRoutes.setup,
+        builder: (context, state) {
+          final user = state.extra as UserCredential;
+          return SetupProfileView(user: user);
+        },
+      ),
+      GoRoute(
         path: AppRoutes.home,
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) {
+          final user = state.extra as UserCredential;
+          return HomeView(user: user);
+        },
       ),
       GoRoute(
         path: AppRoutes.productDetails,

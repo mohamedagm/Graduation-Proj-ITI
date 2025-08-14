@@ -23,7 +23,7 @@ class HomeDetailsViewTopSection extends StatelessWidget {
           //details app bar
           CustomAppBar(
             icon: Icon(Icons.keyboard_arrow_left),
-            onPressed: () => Navigator.pop(context),
+            onPressedBag: () => Navigator.pop(context),
             title: Text(
               'Men’s Shoes',
               style: TextStyle(fontWeight: FontWeight.w500),

@@ -43,7 +43,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             AppStrings.loginSuccessMessage,
             backgroundColor: Colors.green,
           );
-          GoRouter.of(context).pushReplacement(AppRoutes.home);
+          GoRouter.of(
+            context,
+          ).pushReplacement(AppRoutes.home, extra: state.user);
         } else if (state is AuthFailure) {
           customSnackBar(
             context,
@@ -127,7 +129,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               )
                               : Text(
                                 AppStrings.loginButtonSignIn,
-                                style: AppTextStyles.authButtonStyle,
+                                style: AppTextStyles.textButtonStyle,
                               ),
                     ),
                     CustomButton(

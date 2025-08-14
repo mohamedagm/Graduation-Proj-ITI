@@ -166,7 +166,7 @@ class _HomeDetailsViewBottomSectionState
                     ),
                     child: Text(
                       AppStrings.homeDetailsAddToCard,
-                      style: AppTextStyles.authButtonStyle,
+                      style: AppTextStyles.textButtonStyle,
                     ),
                   ),
                 ],
