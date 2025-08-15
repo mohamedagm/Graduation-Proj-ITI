@@ -7,6 +7,7 @@ class UserModel {
   final DateTime createdAt;
   final int age;
   final String gender;
+  final String city;
 
   UserModel({
     required this.uid,
@@ -17,6 +18,7 @@ class UserModel {
     required this.createdAt,
     required this.age,
     required this.gender,
+    required this.city,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,6 +31,7 @@ class UserModel {
       'createdAt': createdAt.toIso8601String(),
       'age': age,
       'gender': gender,
+      'city': city,
     };
   }
 
@@ -42,6 +45,7 @@ class UserModel {
       createdAt: DateTime.parse(map['createdAt'] as String),
       age: map['age'] as int,
       gender: map['gender'] as String,
+      city: map['city'] as String,
     );
   }
 }

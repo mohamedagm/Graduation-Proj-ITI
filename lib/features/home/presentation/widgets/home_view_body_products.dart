@@ -6,14 +6,14 @@ import 'package:iti_project/features/home/data/models/product_model/product_mode
 import 'package:iti_project/features/home/presentation/manager/productsCubit/products_cubit.dart';
 import 'package:iti_project/features/home/presentation/widgets/custom_card.dart';
 
-class HomeViewBody extends StatefulWidget {
-  const HomeViewBody({super.key});
+class HomeViewBodyProducts extends StatefulWidget {
+  const HomeViewBodyProducts({super.key});
 
   @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
+  State<HomeViewBodyProducts> createState() => _HomeViewBodyProductsState();
 }
 
-class _HomeViewBodyState extends State<HomeViewBody> {
+class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
   TextEditingController? controller;
   int currIndex = 0;
   ProductModel productModel = ProductModel();

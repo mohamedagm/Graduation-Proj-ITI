@@ -40,10 +40,12 @@ class AppStrings {
   //setupProfile
   // Buttons
   static const String saveButton = 'Save✅';
+  static const String updateButton = 'Update✅';
   static const String resetButton = 'Reset';
 
   // SnackBars
   static const String savedSuccess = 'Saved';
+  static const String updatedSuccess = 'Updated';
   static const String savedFailure = 'Failed to save data';
 
   // TextField Hints
@@ -65,4 +67,7 @@ class AppStrings {
   //homeDetails
   static const String homeDetailsPrice = 'Price';
   static const String homeDetailsAddToCard = 'Add To Cart';
+
+  //drawer
+  static const String profile = 'Profile';
 }

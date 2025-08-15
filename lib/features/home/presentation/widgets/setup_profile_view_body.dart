@@ -102,6 +102,7 @@ class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
                 spacing: 24,
                 children: [
                   ProfileImagePicker(
+                    deafultImage: '',
                     image: image,
                     onImagePicked: (file) {
                       setState(() {
@@ -139,16 +140,24 @@ class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
                           createdAt: DateTime.now(),
                           age: int.parse(ageController.text),
                           gender: genderController.text,
+                          city: cityController.text,
                         );
                         context.read<SetupProfileCubit>().saveUserDataC(
                           userModel,
                         );
                       }
                     },
-                    child: Text(
-                      AppStrings.saveButton,
-                      style: AppTextStyles.textButtonStyle,
-                    ),
+                    child:
+                        state is SetupProfileLoading
+                            ? SizedBox(
+                              height: 32,
+                              width: 32,
+                              child: CircularProgressIndicator(),
+                            )
+                            : Text(
+                              AppStrings.saveButton,
+                              style: AppTextStyles.textButtonStyle,
+                            ),
                   ),
                   CustomButton(
                     backgroundColor: AppColors.kPrimaryColor,

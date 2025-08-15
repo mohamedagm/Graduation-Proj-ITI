@@ -9,11 +9,16 @@ class FirestoreService {
     await firestore
         .collection('users')
         .doc(usermodel.uid)
-        .set(usermodel.toMap());
+        .set(usermodel.toMap(), SetOptions(merge: true));
   }
 
   Future<UserModel> getUserData(String uid) async {
     final doc = await firestore.collection('users').doc(uid).get();
+
+    // if (!doc.exists || doc.data() == null) {
+    //   throw Exception("User with uid $uid not found in Firestore");
+    // }
+
     return UserModel.fromMap(doc.data()!);
   }
 }

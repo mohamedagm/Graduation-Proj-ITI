@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:iti_project/core/errors/dio_product_exceptions.dart';
 import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
-import 'package:meta/meta.dart';
 
 part 'products_state.dart';
 

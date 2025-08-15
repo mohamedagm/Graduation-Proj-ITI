@@ -15,7 +15,7 @@ class SetupProfileCubit extends Cubit<SetupProfileState> {
     emit(SetupProfileLoading());
     try {
       await firestoreService.saveUserData(usermodel: usermodel);
-      emit(SetupProfileSuccess(user: null));
+      emit(SetupProfileSuccess(user: usermodel));
     } on FirebaseException catch (e) {
       emit(SetupProfileFailure(FirestoreFailure.fromCode(e.code).errMessage));
     } catch (e) {

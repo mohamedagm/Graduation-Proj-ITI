@@ -6,11 +6,13 @@ import 'package:iti_project/core/constants/app_colors.dart';
 class ProfileImagePicker extends StatefulWidget {
   final File? image;
   final Function(File) onImagePicked;
+  final String deafultImage;
 
   const ProfileImagePicker({
     super.key,
     this.image,
     required this.onImagePicked,
+    required this.deafultImage,
   });
 
   @override
@@ -48,15 +50,9 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
           CircleAvatar(
             radius: 90,
             backgroundImage:
-                pickedImage != null ? FileImage(pickedImage!) : null,
-            child:
-                pickedImage == null
-                    ? const Icon(
-                      Icons.person,
-                      size: 100,
-                      color: AppColors.kPrimaryColor,
-                    )
-                    : null,
+                pickedImage != null
+                    ? FileImage(pickedImage!)
+                    : NetworkImage(widget.deafultImage),
           ),
           Positioned(
             bottom: 135,

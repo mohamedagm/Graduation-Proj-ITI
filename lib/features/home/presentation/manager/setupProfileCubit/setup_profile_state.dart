@@ -12,8 +12,8 @@ final class SetupProfileInitial extends SetupProfileState {}
 final class SetupProfileLoading extends SetupProfileState {}
 
 final class SetupProfileSuccess extends SetupProfileState {
-  final UserModel? user;
-  const SetupProfileSuccess({this.user});
+  final UserModel user;
+  const SetupProfileSuccess({required this.user});
 }
 
 final class SetupProfileFailure extends SetupProfileState {
