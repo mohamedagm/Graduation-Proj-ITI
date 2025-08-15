@@ -30,6 +30,8 @@ class HomeView extends StatelessWidget {
           builder: (context, state) {
             if (state is SetupProfileSuccess) {
               return CustomDrawer(userModel: state.user);
+            } else if (state is SetupProfileFailure) {
+              return Drawer(child: Center(child: Text(state.errMsg)));
             } else {
               return Drawer();
             }

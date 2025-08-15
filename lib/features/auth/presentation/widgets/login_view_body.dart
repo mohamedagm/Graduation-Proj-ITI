@@ -43,9 +43,15 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             AppStrings.loginSuccessMessage,
             backgroundColor: Colors.green,
           );
-          GoRouter.of(
-            context,
-          ).pushReplacement(AppRoutes.home, extra: state.user);
+          if (state.user.additionalUserInfo!.isNewUser) {
+            GoRouter.of(
+              context,
+            ).pushReplacement(AppRoutes.setup, extra: state.user);
+          } else {
+            GoRouter.of(
+              context,
+            ).pushReplacement(AppRoutes.home, extra: state.user);
+          }
         } else if (state is AuthFailure) {
           customSnackBar(
             context,
