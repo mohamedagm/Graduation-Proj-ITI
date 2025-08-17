@@ -35,17 +35,14 @@ class _HomeDetailsViewBottomSectionState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // title,price,desc
-              Text(
-                widget.productModel.title!,
-                style: AppTextStyles.kDetailsTitle,
-              ),
+              Text(widget.productModel.title!, style: AppTextStyles.headline2),
               Text(
                 '\$${widget.productModel.price}',
-                style: AppTextStyles.kDetailsShoesPrice,
+                style: AppTextStyles.titleLarge,
               ),
               Text(
                 widget.productModel.description!,
-                style: AppTextStyles.kDetailsDesc,
+                style: AppTextStyles.titleMedium,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -63,14 +60,14 @@ class _HomeDetailsViewBottomSectionState
                         child: Text(
                           '${widget.productModel.availabilityStatus} '
                           '${widget.productModel.stock}',
-                          style: AppTextStyles.kDetailsShoesInfo,
+                          style: AppTextStyles.bodyLarge,
                         ),
                       ),
                       CustomDetailsInfoContainer(
                         widthRatio: 0.4,
                         child: Text(
                           widget.productModel.warrantyInformation.toString(),
-                          style: AppTextStyles.kDetailsShoesInfo,
+                          style: AppTextStyles.bodyLarge,
                         ),
                       ),
                     ],
@@ -79,7 +76,7 @@ class _HomeDetailsViewBottomSectionState
                     widthRatio: 0.7,
                     child: Text(
                       '${widget.productModel.shippingInformation}',
-                      style: AppTextStyles.kDetailsShoesInfo,
+                      style: AppTextStyles.bodyLarge,
                     ),
                   ),
                 ],
@@ -89,7 +86,7 @@ class _HomeDetailsViewBottomSectionState
               Center(
                 child: Text(
                   'size ${widget.productModel.tags.toString()}',
-                  style: AppTextStyles.kDetailsShoesPrice,
+                  style: AppTextStyles.titleLarge,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -122,8 +119,8 @@ class _HomeDetailsViewBottomSectionState
                                 : [],
                         color:
                             index == curIndex
-                                ? AppColors.kPrimaryColor
-                                : AppColors.kBackGroundColor,
+                                ? AppColors.primary
+                                : AppColors.backgroundLight,
                       ),
                       child: Center(
                         child: Text(
@@ -131,7 +128,7 @@ class _HomeDetailsViewBottomSectionState
                           style: TextStyle(
                             color:
                                 index == curIndex
-                                    ? AppColors.kBackGroundColor
+                                    ? AppColors.backgroundLight
                                     : Color(0xff707B81),
                           ),
                         ),
@@ -151,14 +148,14 @@ class _HomeDetailsViewBottomSectionState
                       Text(AppStrings.homeDetailsPrice),
                       Text(
                         '\$${widget.productModel.price}',
-                        style: AppTextStyles.kDetailsShoesPrice,
+                        style: AppTextStyles.titleLarge,
                       ),
                     ],
                   ),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.kPrimaryColor,
+                      backgroundColor: AppColors.primary,
                       minimumSize: Size(
                         MediaQuery.of(context).size.width * 0.4,
                         50,
@@ -166,7 +163,7 @@ class _HomeDetailsViewBottomSectionState
                     ),
                     child: Text(
                       AppStrings.homeDetailsAddToCard,
-                      style: AppTextStyles.textButtonStyle,
+                      style: AppTextStyles.titleLarge,
                     ),
                   ),
                 ],

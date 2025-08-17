@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kSplashColor,
+      backgroundColor: AppColors.splash,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -29,19 +29,10 @@ class _SplashViewState extends State<SplashView> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
 
-              Text(
-                AppStrings.splashText1,
-                style: AppTextStyles.splashText1Style,
-              ),
-              Text(
-                AppStrings.splashText2,
-                style: AppTextStyles.splashText2Style,
-              ),
+              Text(AppStrings.splashText1, style: AppTextStyles.headline1),
+              Text(AppStrings.splashText2, style: AppTextStyles.titleLarge),
               SizedBox(height: MediaQuery.of(context).size.height * 0.5),
-              Text(
-                AppStrings.splashText3,
-                style: AppTextStyles.splashText3Style,
-              ),
+              Text(AppStrings.splashText3, style: AppTextStyles.bodySmall),
             ],
           ),
         ),

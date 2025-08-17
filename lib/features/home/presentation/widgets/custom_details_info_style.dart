@@ -16,7 +16,7 @@ class CustomDetailsInfoContainer extends StatelessWidget {
       width: MediaQuery.of(context).size.width * widthRatio,
       padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: AppColors.kPrimaryColor,
+        color: AppColors.primary,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(16),
           bottom: Radius.circular(16),

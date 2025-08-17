@@ -44,13 +44,9 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             backgroundColor: Colors.green,
           );
           if (state.user.additionalUserInfo!.isNewUser) {
-            GoRouter.of(
-              context,
-            ).pushReplacement(AppRoutes.setup, extra: state.user);
+            GoRouter.of(context).push(AppRoutes.setup, extra: state.user);
           } else {
-            GoRouter.of(
-              context,
-            ).pushReplacement(AppRoutes.home, extra: state.user);
+            GoRouter.of(context).push(AppRoutes.home, extra: state.user);
           }
         } else if (state is AuthFailure) {
           customSnackBar(
@@ -75,11 +71,13 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   children: [
                     Text(
                       AppStrings.registerTitle,
-                      style: AppTextStyles.authTitleStyle,
+                      style: AppTextStyles.headline1.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Text(
                       AppStrings.registerSubtitle,
-                      style: AppTextStyles.authSubTitleStyle,
+                      style: AppTextStyles.titleLarge,
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
@@ -107,7 +105,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       ),
                     ),
                     CustomButton(
-                      backgroundColor: AppColors.kPrimaryColor,
+                      backgroundColor: AppColors.primary,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           context.read<AuthCubit>().registerEmailPasswordC(
@@ -125,7 +123,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                               )
                               : Text(
                                 AppStrings.registerButtonSignUp,
-                                style: AppTextStyles.textButtonStyle,
+                                style: AppTextStyles.titleLarge,
                               ),
                     ),
                     CustomButton(
@@ -143,7 +141,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                           const SizedBox(width: 5),
                           Text(
                             AppStrings.authGoogleSignIn,
-                            style: AppTextStyles.authGoogleSignInStyle,
+                            style: AppTextStyles.titleMedium,
                           ),
                         ],
                       ),
@@ -153,7 +151,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       children: [
                         Text(
                           AppStrings.registerHaveAccount,
-                          style: AppTextStyles.authAccountStyle,
+                          style: AppTextStyles.titleMedium,
                         ),
                         TextButton(
                           onPressed: () {
@@ -161,7 +159,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                           },
                           child: Text(
                             AppStrings.registerLogin,
-                            style: AppTextStyles.authGoogleSignInStyle,
+                            style: AppTextStyles.titleMedium,
                           ),
                         ),
                       ],

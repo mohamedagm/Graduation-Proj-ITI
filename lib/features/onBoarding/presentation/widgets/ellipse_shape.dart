@@ -15,7 +15,7 @@ class EllipseShape extends StatelessWidget {
             width: 389,
             height: 389,
             decoration: BoxDecoration(
-              color: AppColors.kBoardingEllipseColor1,
+              color: AppColors.boardingEllipse1,
               shape: BoxShape.circle,
             ),
           ),
@@ -26,7 +26,7 @@ class EllipseShape extends StatelessWidget {
               width: 389 / 2,
               height: 389 / 2,
               decoration: BoxDecoration(
-                color: AppColors.kBoardingEllipseColor2,
+                color: AppColors.boardingEllipse2,
                 shape: BoxShape.circle,
               ),
             ),

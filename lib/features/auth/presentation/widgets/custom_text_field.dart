@@ -31,11 +31,11 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: sicon,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: AppColors.kPrimaryColor, width: 2),
+          borderSide: BorderSide(color: AppColors.primary, width: 2),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: AppColors.kBackGroundColor),
+          borderSide: BorderSide(color: AppColors.backgroundLight),
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
         contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),

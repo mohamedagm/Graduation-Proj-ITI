@@ -60,7 +60,7 @@ class _ProfileImagePickerState extends State<ProfileImagePicker> {
             child: Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color: AppColors.kPrimaryColor,
+                color: AppColors.primary,
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 2),
               ),

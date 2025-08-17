@@ -45,10 +45,11 @@ class CustomCard extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Text(
                       productModel.title!,
-                      //  productModel.title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.homeShoesName,
+                      style: AppTextStyles.bodyLarge.copyWith(
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   Padding(
@@ -58,7 +59,9 @@ class CustomCard extends StatelessWidget {
                       children: [
                         Text(
                           '\$${productModel.price!}',
-                          style: AppTextStyles.homeShoesPrice,
+                          style: AppTextStyles.bodySmall.copyWith(
+                            color: Colors.black,
+                          ),
                         ),
                         Container(
                           height: 28,

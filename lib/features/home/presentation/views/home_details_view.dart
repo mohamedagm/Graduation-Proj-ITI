@@ -10,7 +10,7 @@ class HomeDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kBackGroundColor,
+      backgroundColor: AppColors.backgroundLight,
       body: HomeDetailsViewBody(productModel: productModel),
     );
   }

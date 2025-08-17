@@ -29,7 +29,7 @@ class BottomBoarding extends StatelessWidget {
             effect: WormEffect(
               dotHeight: 5,
               dotWidth: 25,
-              activeDotColor: AppColors.kPrimaryColor,
+              activeDotColor: AppColors.primary,
               dotColor: Colors.grey,
             ),
           ),
@@ -39,11 +39,11 @@ class BottomBoarding extends StatelessWidget {
                 MediaQuery.of(context).size.width * 0.4,
                 MediaQuery.of(context).size.height * 0.06,
               ),
-              backgroundColor: AppColors.kPrimaryColor,
+              backgroundColor: AppColors.primary,
             ),
             onPressed: () {
               currentPage == 2
-                  ? GoRouter.of(context).pushReplacement(AppRoutes.login)
+                  ? GoRouter.of(context).push(AppRoutes.login)
                   : pageController.nextPage(
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
@@ -53,7 +53,7 @@ class BottomBoarding extends StatelessWidget {
               currentPage == 0
                   ? AppStrings.onboardingGetStarted
                   : AppStrings.onboardingNext,
-              style: AppTextStyles.onBoardingTextButton,
+              style: AppTextStyles.bodyLarge.copyWith(color: Colors.white),
             ),
           ),
         ],

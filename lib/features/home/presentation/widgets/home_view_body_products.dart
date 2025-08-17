@@ -33,6 +33,7 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
             child: Column(
               spacing: 15,
               children: [
+                SizedBox(height: 5),
                 CustomTextField(
                   hintText: AppStrings.homeSearchHint,
                   controller: controller,

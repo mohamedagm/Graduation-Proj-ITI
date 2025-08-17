@@ -26,7 +26,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
       height: 60,
       style: TabStyle.react,
       backgroundColor: Colors.white,
-      activeColor: AppColors.kPrimaryColor,
+      activeColor: AppColors.primary,
       initialActiveIndex: 0,
       color: Colors.grey,
       curveSize: 85,

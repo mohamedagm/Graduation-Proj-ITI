@@ -44,13 +44,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             backgroundColor: Colors.green,
           );
           if (state.user.additionalUserInfo!.isNewUser) {
-            GoRouter.of(
-              context,
-            ).pushReplacement(AppRoutes.setup, extra: state.user);
+            GoRouter.of(context).push(AppRoutes.setup, extra: state.user);
           } else {
-            GoRouter.of(
-              context,
-            ).pushReplacement(AppRoutes.home, extra: state.user);
+            GoRouter.of(context).push(AppRoutes.home, extra: state.user);
           }
         } else if (state is AuthFailure) {
           customSnackBar(
@@ -75,11 +71,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   children: [
                     Text(
                       AppStrings.loginTitle,
-                      style: AppTextStyles.authTitleStyle,
+                      style: AppTextStyles.headline1.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Text(
                       AppStrings.loginSubTitle,
-                      style: AppTextStyles.authSubTitleStyle,
+                      style: AppTextStyles.titleLarge,
                     ),
                     SizedBox(height: 10),
                     CustomTextField(
@@ -112,12 +110,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         onPressed: () {},
                         child: Text(
                           AppStrings.loginRecoveryPassword,
-                          style: AppTextStyles.loginRecoveryPasswordStyle,
+                          style: AppTextStyles.bodySmall,
                         ),
                       ),
                     ),
                     CustomButton(
-                      backgroundColor: AppColors.kPrimaryColor,
+                      backgroundColor: AppColors.primary,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           context.read<AuthCubit>().loginEmailPasswordC(
@@ -135,7 +133,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               )
                               : Text(
                                 AppStrings.loginButtonSignIn,
-                                style: AppTextStyles.textButtonStyle,
+                                style: AppTextStyles.titleLarge,
                               ),
                     ),
                     CustomButton(
@@ -153,7 +151,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           const SizedBox(width: 5),
                           Text(
                             AppStrings.authGoogleSignIn,
-                            style: AppTextStyles.authGoogleSignInStyle,
+                            style: AppTextStyles.titleMedium,
                           ),
                         ],
                       ),
@@ -163,7 +161,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       children: [
                         Text(
                           AppStrings.loginNoAccount,
-                          style: AppTextStyles.authAccountStyle,
+                          style: AppTextStyles.titleMedium,
                         ),
                         TextButton(
                           onPressed: () {
@@ -171,7 +169,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           },
                           child: Text(
                             AppStrings.loginSignUpFree,
-                            style: AppTextStyles.authGoogleSignInStyle,
+                            style: AppTextStyles.titleMedium,
                           ),
                         ),
                       ],

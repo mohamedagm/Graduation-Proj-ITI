@@ -108,6 +108,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
               child: Column(
                 spacing: 24,
                 children: [
+                  SizedBox(height: 5),
                   ProfileImagePicker(
                     deafultImage: widget.userModel.photoUrl,
                     image: image,
@@ -130,7 +131,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                     ),
                   ),
                   CustomButton(
-                    backgroundColor: AppColors.kPrimaryColor,
+                    backgroundColor: AppColors.primary,
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         String imageUrl = AppStrings.setupDefImage;
@@ -173,7 +174,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                             )
                             : Text(
                               AppStrings.updateButton,
-                              style: AppTextStyles.textButtonStyle,
+                              style: AppTextStyles.titleLarge,
                             ),
                   ),
                 ],
