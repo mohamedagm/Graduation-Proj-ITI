@@ -34,13 +34,16 @@ class BottomBoarding extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              fixedSize: Size(
-                MediaQuery.of(context).size.width * 0.4,
-                MediaQuery.of(context).size.height * 0.06,
-              ),
-              backgroundColor: AppColors.primary,
-            ),
+            style:
+                currentPage == 0
+                    ? ElevatedButton.styleFrom(
+                      fixedSize: Size(
+                        MediaQuery.of(context).size.width * 0.4,
+                        MediaQuery.of(context).size.height * 0.06,
+                      ),
+                      backgroundColor: AppColors.primary,
+                    )
+                    : null,
             onPressed: () {
               currentPage == 2
                   ? GoRouter.of(context).push(AppRoutes.login)

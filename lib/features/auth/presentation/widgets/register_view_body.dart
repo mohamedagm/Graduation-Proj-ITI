@@ -105,7 +105,6 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       ),
                     ),
                     CustomButton(
-                      backgroundColor: AppColors.primary,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           context.read<AuthCubit>().registerEmailPasswordC(
@@ -121,10 +120,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                                 width: 32,
                                 child: CircularProgressIndicator(),
                               )
-                              : Text(
-                                AppStrings.registerButtonSignUp,
-                                style: AppTextStyles.titleLarge,
-                              ),
+                              : Text(AppStrings.registerButtonSignUp),
                     ),
                     CustomButton(
                       backgroundColor: Colors.white,

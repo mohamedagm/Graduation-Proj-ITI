@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/themes/app_text_styles.dart';
 
-// text - appBar - elebatedButton - textformfield - bottomAppBar
+// text✅ - appBar✅ - elebatedButton✅ - textformfield - bottomAppBar
 class AppTheme {
   /// Light Theme
-  static final ThemeData lightTheme = ThemeData(
+  static final ThemeData lightThemew = ThemeData(
+    useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.backgroundLight,
-    iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(Colors.white),
-      ),
+    colorScheme: ColorScheme.light(
+      onSurface: AppColors.textDark,
+      primary: AppColors.primary,
+      onPrimary: Colors.white,
+      secondary: Colors.blueAccent,
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
     ),
+    scaffoldBackgroundColor: AppColors.backgroundLight,
     // AppBar
     appBarTheme: AppBarTheme(
       elevation: 0,
@@ -25,56 +30,26 @@ class AppTheme {
       actionsIconTheme: IconThemeData(color: AppColors.primary),
       actionsPadding: const EdgeInsets.only(right: 16.0),
     ),
-
-    // BottomAppBar
-    bottomAppBarTheme: const BottomAppBarTheme(
-      elevation: 8,
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      shape: AutomaticNotchedShape(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-      ),
-    ),
-
     // ElevatedButton
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        minimumSize: WidgetStateProperty.all(const Size(48, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(125, 55)),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          const EdgeInsets.symmetric(vertical: 16),
         ),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
         ),
         elevation: WidgetStateProperty.resolveWith<double>((states) {
-          if (states.contains(WidgetState.disabled)) return 0;
           if (states.contains(WidgetState.pressed)) return 2;
           return 4;
         }),
-        backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.disabled)) {
-            return AppColors.primary.withOpacity(0.4);
-          }
-          if (states.contains(WidgetState.pressed)) {
-            return AppColors.splash;
-          }
-          return AppColors.primary;
-        }),
+        backgroundColor: WidgetStateProperty.all(AppColors.primary),
         foregroundColor: WidgetStateProperty.all(Colors.white),
-        overlayColor: WidgetStateProperty.all(Colors.white.withOpacity(0.06)),
-        textStyle: WidgetStateProperty.all(
-          const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.2,
-          ),
-        ),
+        overlayColor: WidgetStateProperty.all(const Color(0xA62195F3)),
+        textStyle: WidgetStateProperty.all(AppTextStyles.titleLarge),
       ),
     ),
-
     // TextFormField (InputDecorationTheme)
     inputDecorationTheme: InputDecorationTheme(
       isDense: true,
@@ -118,27 +93,43 @@ class AppTheme {
       ),
     ),
 
-    textTheme: TextTheme(
-      displayLarge: AppTextStyles.headline1, // 35, bold
-      displayMedium: AppTextStyles.headline2, // 30, w500
-      titleLarge: AppTextStyles.titleLarge, // 20, w400
-      titleMedium: AppTextStyles.titleMedium, // 18, w500
-      bodyLarge: AppTextStyles.bodyLarge, // 16, w800
-      bodySmall: AppTextStyles.bodySmall, // 14, w500
-      labelSmall: AppTextStyles.labelSmall, // 12, w400
-    ),
-  );
+    textTheme: AppTextStyles.textTheme,
 
-  /// Dark Theme
-  static final ThemeData darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: Colors.black,
-    scaffoldBackgroundColor: Colors.black,
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(Colors.white),
       ),
     ),
+    // BottomAppBar
+    bottomAppBarTheme: const BottomAppBarTheme(
+      elevation: 8,
+      color: Colors.white,
+      surfaceTintColor: Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      shape: AutomaticNotchedShape(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+      ),
+    ),
+  );
+
+  /// Dark Theme
+  static final ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    primaryColor: Colors.black,
+    colorScheme: const ColorScheme.dark(
+      onSurface: Colors.white,
+      primary: AppColors.primary,
+      onPrimary: Colors.white,
+      secondary: Colors.blueAccent,
+      onSecondary: Colors.white,
+      error: Colors.red,
+      onError: Colors.white,
+    ),
+    scaffoldBackgroundColor: Colors.black,
+
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -148,18 +139,6 @@ class AppTheme {
       iconTheme: IconThemeData(color: AppColors.primary),
       actionsIconTheme: IconThemeData(color: AppColors.primary),
       actionsPadding: const EdgeInsets.only(right: 16.0),
-    ),
-
-    bottomAppBarTheme: const BottomAppBarTheme(
-      elevation: 8,
-      color: Color(0xff111318),
-      surfaceTintColor: Color(0xff111318),
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      shape: AutomaticNotchedShape(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-      ),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -241,39 +220,24 @@ class AppTheme {
       ),
     ),
 
-    textTheme: TextTheme(
-      displayLarge: AppTextStyles.headline1, // 35, bold
-      displayMedium: AppTextStyles.headline2, // 30, w500
-      titleLarge: AppTextStyles.titleLarge, // 20, w400
-      titleMedium: AppTextStyles.titleMedium, // 18, w500
-      bodyLarge: AppTextStyles.bodyLarge, // 16, w800
-      bodySmall: AppTextStyles.bodySmall, // 14, w500
-      labelSmall: AppTextStyles.labelSmall, // 12, w400
+    textTheme: AppTextStyles.textTheme,
+
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(Colors.white),
+      ),
+    ),
+
+    bottomAppBarTheme: const BottomAppBarTheme(
+      elevation: 8,
+      color: Color(0xff111318),
+      surfaceTintColor: Color(0xff111318),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      shape: AutomaticNotchedShape(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+      ),
     ),
   );
-  // static ThemeData? light = ThemeData(
-  //   primaryColor: AppColors.kPrimaryColor,
-  //   scaffoldBackgroundColor: AppColors.kBackColor1,
-  //   inputDecorationTheme: InputDecorationTheme(
-  //     filled: true,
-  //     fillColor: Colors.grey[200],
-  //     hintStyle: AppTextStyles.kHomeSearch,
-  //     border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-  //     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-  //   ),
-  //   elevatedButtonTheme: ElevatedButtonThemeData(
-  //     style: ElevatedButton.styleFrom(
-  //       minimumSize: const Size(360, 60),
-  //       backgroundColor: AppColors.kPrimaryColor,
-  //       textStyle: AppTextStyles.kButtonText,
-  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-  //     ),
-  //   ),
-  //   textButtonTheme: TextButtonThemeData(
-  //     style: TextButton.styleFrom(
-  //       foregroundColor: Colors.white,
-  //       textStyle: AppTextStyles.kButtonText,
-  //     ),
-  //   ),
-  // );
 }

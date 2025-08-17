@@ -26,4 +26,13 @@ abstract class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
+  static final TextTheme textTheme = TextTheme(
+    displayLarge: AppTextStyles.headline1, // 35, bold
+    displayMedium: AppTextStyles.headline2, // 30, w500
+    titleLarge: AppTextStyles.titleLarge, // 20, w400
+    titleMedium: AppTextStyles.titleMedium, // 18, w500
+    bodyLarge: AppTextStyles.bodyLarge, // 16, w800
+    bodySmall: AppTextStyles.bodySmall, // 14, w500
+    labelSmall: AppTextStyles.labelSmall, // 12, w400
+  );
 }

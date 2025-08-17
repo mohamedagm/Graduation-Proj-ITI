@@ -29,10 +29,25 @@ class _SplashViewState extends State<SplashView> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.2),
 
-              Text(AppStrings.splashText1, style: AppTextStyles.headline1),
-              Text(AppStrings.splashText2, style: AppTextStyles.titleLarge),
+              // Brand name
+              Text(
+                AppStrings.splashText1,
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
+
+              // Subtitle
+              Text(
+                AppStrings.splashText2,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+
               SizedBox(height: MediaQuery.of(context).size.height * 0.5),
-              Text(AppStrings.splashText3, style: AppTextStyles.bodySmall),
+
+              // Version
+              Text(
+                AppStrings.splashText3,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
             ],
           ),
         ),

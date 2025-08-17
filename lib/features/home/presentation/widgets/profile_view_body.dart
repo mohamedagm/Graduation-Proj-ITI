@@ -131,7 +131,6 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                     ),
                   ),
                   CustomButton(
-                    backgroundColor: AppColors.primary,
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         String imageUrl = AppStrings.setupDefImage;
@@ -172,10 +171,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                               width: 32,
                               child: CircularProgressIndicator(),
                             )
-                            : Text(
-                              AppStrings.updateButton,
-                              style: AppTextStyles.titleLarge,
-                            ),
+                            : Text(AppStrings.updateButton),
                   ),
                 ],
               ),

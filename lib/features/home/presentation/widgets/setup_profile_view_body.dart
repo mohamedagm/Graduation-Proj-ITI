@@ -123,7 +123,6 @@ class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
                     ),
                   ),
                   CustomButton(
-                    backgroundColor: AppColors.primary,
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         String imageUrl = AppStrings.setupDefImage;
@@ -154,22 +153,15 @@ class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
                               width: 32,
                               child: CircularProgressIndicator(),
                             )
-                            : Text(
-                              AppStrings.saveButton,
-                              style: AppTextStyles.titleLarge,
-                            ),
+                            : Text(AppStrings.saveButton),
                   ),
                   CustomButton(
-                    backgroundColor: AppColors.primary,
                     onPressed: () {
                       for (var co in controllers) {
                         co.clear();
                       }
                     },
-                    child: Text(
-                      AppStrings.resetButton,
-                      style: AppTextStyles.titleLarge,
-                    ),
+                    child: Text(AppStrings.resetButton),
                   ),
                 ],
               ),

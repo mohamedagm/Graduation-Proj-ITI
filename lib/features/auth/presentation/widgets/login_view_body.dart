@@ -115,7 +115,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       ),
                     ),
                     CustomButton(
-                      backgroundColor: AppColors.primary,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           context.read<AuthCubit>().loginEmailPasswordC(
@@ -131,10 +130,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                 width: 32,
                                 child: CircularProgressIndicator(),
                               )
-                              : Text(
-                                AppStrings.loginButtonSignIn,
-                                style: AppTextStyles.titleLarge,
-                              ),
+                              : Text(AppStrings.loginButtonSignIn),
                     ),
                     CustomButton(
                       backgroundColor: Colors.white,
