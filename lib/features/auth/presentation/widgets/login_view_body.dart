@@ -71,7 +71,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   children: [
                     Text(
                       AppStrings.loginTitle,
-                      style: AppTextStyles.headline1.copyWith(
+                      style: AppTextStyles.displayLarge.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),

@@ -25,12 +25,14 @@ class BoardingPageBody extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             BoardingText(
               text: boardingModel.title,
-              style: AppTextStyles.headline1.copyWith(fontSize: 40),
+              style: Theme.of(
+                context,
+              ).textTheme.displayLarge!.copyWith(fontSize: 40),
             ),
             SizedBox(height: 10),
             BoardingText(
               text: boardingModel.sub,
-              style: AppTextStyles.titleLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTextStyles {
-  static final headline1 = TextStyle(fontSize: 35, fontWeight: FontWeight.bold);
-  static final TextStyle headline2 = TextStyle(
+  static final displayLarge = TextStyle(
+    fontSize: 35,
+    fontWeight: FontWeight.bold,
+  );
+  static final TextStyle displayMedium = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w500,
   );
@@ -27,8 +30,8 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
   static final TextTheme textTheme = TextTheme(
-    displayLarge: AppTextStyles.headline1, // 35, bold
-    displayMedium: AppTextStyles.headline2, // 30, w500
+    displayLarge: AppTextStyles.displayLarge, // 35, bold
+    displayMedium: AppTextStyles.displayMedium, // 30, w500
     titleLarge: AppTextStyles.titleLarge, // 20, w400
     titleMedium: AppTextStyles.titleMedium, // 18, w500
     bodyLarge: AppTextStyles.bodyLarge, // 16, w800

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/core/utils/functions/nav_to_boarding.dart';
 
 class SplashView extends StatefulWidget {

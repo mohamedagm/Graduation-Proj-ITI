@@ -35,7 +35,10 @@ class _HomeDetailsViewBottomSectionState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // title,price,desc
-              Text(widget.productModel.title!, style: AppTextStyles.headline2),
+              Text(
+                widget.productModel.title!,
+                style: AppTextStyles.displayMedium,
+              ),
               Text(
                 '\$${widget.productModel.price}',
                 style: AppTextStyles.titleLarge,

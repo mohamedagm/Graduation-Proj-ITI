@@ -71,7 +71,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   children: [
                     Text(
                       AppStrings.registerTitle,
-                      style: AppTextStyles.headline1.copyWith(
+                      style: AppTextStyles.displayLarge.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),

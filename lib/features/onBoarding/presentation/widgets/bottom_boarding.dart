@@ -41,7 +41,6 @@ class BottomBoarding extends StatelessWidget {
                         MediaQuery.of(context).size.width * 0.4,
                         MediaQuery.of(context).size.height * 0.06,
                       ),
-                      backgroundColor: AppColors.primary,
                     )
                     : null,
             onPressed: () {
@@ -56,7 +55,6 @@ class BottomBoarding extends StatelessWidget {
               currentPage == 0
                   ? AppStrings.onboardingGetStarted
                   : AppStrings.onboardingNext,
-              style: AppTextStyles.bodyLarge.copyWith(color: Colors.white),
             ),
           ),
         ],

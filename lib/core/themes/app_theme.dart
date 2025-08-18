@@ -5,7 +5,7 @@ import 'package:iti_project/core/themes/app_text_styles.dart';
 // text✅ - appBar✅ - elebatedButton✅ - textformfield - bottomAppBar
 class AppTheme {
   /// Light Theme
-  static final ThemeData lightThemew = ThemeData(
+  static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
@@ -115,7 +115,7 @@ class AppTheme {
   );
 
   /// Dark Theme
-  static final ThemeData darkTheme = ThemeData(
+  static final ThemeData darkThemes = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     primaryColor: Colors.black,
@@ -143,39 +143,23 @@ class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        minimumSize: WidgetStateProperty.all(const Size(48, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(125, 55)),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          const EdgeInsets.symmetric(vertical: 16),
         ),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
         ),
         elevation: WidgetStateProperty.resolveWith<double>((states) {
-          if (states.contains(WidgetState.disabled)) return 0;
           if (states.contains(WidgetState.pressed)) return 2;
           return 4;
         }),
-        backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.disabled)) {
-            return AppColors.primary.withOpacity(0.5);
-          }
-          if (states.contains(WidgetState.pressed)) {
-            return AppColors.splash;
-          }
-          return AppColors.primary;
-        }),
+        backgroundColor: WidgetStateProperty.all(AppColors.primary),
         foregroundColor: WidgetStateProperty.all(Colors.white),
-        overlayColor: WidgetStateProperty.all(Colors.white.withOpacity(0.08)),
-        textStyle: WidgetStateProperty.all(
-          const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.2,
-          ),
-        ),
+        overlayColor: WidgetStateProperty.all(const Color(0xA62195F3)),
+        textStyle: WidgetStateProperty.all(AppTextStyles.titleLarge),
       ),
     ),
-
     inputDecorationTheme: InputDecorationTheme(
       isDense: true,
       filled: true,
