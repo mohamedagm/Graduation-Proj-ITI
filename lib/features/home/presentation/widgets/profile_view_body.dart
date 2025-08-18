@@ -103,75 +103,79 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
           child: SingleChildScrollView(
             child: Form(
               key: formKey,
-              child: Column(
-                spacing: 24,
-                children: [
-                  SizedBox(height: 5),
-                  ProfileImagePicker(
-                    deafultImage: widget.userModel.photoUrl,
-                    image: image,
-                    onImagePicked: (file) {
-                      setState(() {
-                        image = file;
-                      });
-                    },
-                  ),
-                  Column(
-                    spacing: 15,
-                    children: List.generate(
-                      5,
-                      (index) => CustomTextField(
-                        hintText: hints[index],
-                        controller: controllers[index],
-                        validator: validators[index],
-                        picon: icons[index],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  spacing: 24,
+                  children: [
+                    SizedBox(height: 5),
+                    ProfileImagePicker(
+                      deafultImage: widget.userModel.photoUrl,
+                      image: image,
+                      onImagePicked: (file) {
+                        setState(() {
+                          image = file;
+                        });
+                      },
+                    ),
+                    Column(
+                      spacing: 15,
+                      children: List.generate(
+                        5,
+                        (index) => CustomTextField(
+                          hintText: hints[index],
+                          controller: controllers[index],
+                          validator: validators[index],
+                          picon: icons[index],
+                        ),
                       ),
                     ),
-                  ),
-                  CustomButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        String imageUrl = AppStrings.setupDefImage;
-                        // context.read<SetupProfileCubit>().uploadProfileImage(
-                        //   image!,
-                        //   widget.user.user!.uid,
-                        // );
-                        final userModel = UserModel(
-                          uid: widget.userModel.uid,
-                          name: nameController.text,
-                          email: widget.userModel.email,
-                          phone: phoneController.text,
-                          photoUrl: imageUrl,
-                          createdAt: DateTime.now(),
-                          age: int.parse(ageController.text),
-                          gender: genderController.text,
-                          city: cityController.text,
-                        );
-                        bool hasChanged =
-                            nameController.text != widget.userModel.name ||
-                            phoneController.text != widget.userModel.phone ||
-                            imageUrl != widget.userModel.photoUrl ||
-                            ageController.text !=
-                                widget.userModel.age.toString() ||
-                            genderController.text != widget.userModel.gender ||
-                            cityController.text != widget.userModel.city;
-                        if (hasChanged) {
-                          context.read<SetupProfileCubit>().saveUserDataC(
-                            userModel,
+                    CustomButton(
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          String imageUrl = AppStrings.setupDefImage;
+                          // context.read<SetupProfileCubit>().uploadProfileImage(
+                          //   image!,
+                          //   widget.user.user!.uid,
+                          // );
+                          final userModel = UserModel(
+                            uid: widget.userModel.uid,
+                            name: nameController.text,
+                            email: widget.userModel.email,
+                            phone: phoneController.text,
+                            photoUrl: imageUrl,
+                            createdAt: DateTime.now(),
+                            age: int.parse(ageController.text),
+                            gender: genderController.text,
+                            city: cityController.text,
                           );
+                          bool hasChanged =
+                              nameController.text != widget.userModel.name ||
+                              phoneController.text != widget.userModel.phone ||
+                              imageUrl != widget.userModel.photoUrl ||
+                              ageController.text !=
+                                  widget.userModel.age.toString() ||
+                              genderController.text !=
+                                  widget.userModel.gender ||
+                              cityController.text != widget.userModel.city;
+                          if (hasChanged) {
+                            context.read<SetupProfileCubit>().saveUserDataC(
+                              userModel,
+                            );
+                          }
                         }
-                      }
-                    },
-                    child:
-                        state is SetupProfileLoading
-                            ? SizedBox(
-                              height: 32,
-                              width: 32,
-                              child: CircularProgressIndicator(),
-                            )
-                            : Text(AppStrings.updateButton),
-                  ),
-                ],
+                      },
+                      child:
+                          state is SetupProfileLoading
+                              ? SizedBox(
+                                height: 32,
+                                width: 32,
+                                child: CircularProgressIndicator(),
+                              )
+                              : Text(AppStrings.updateButton),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

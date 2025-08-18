@@ -3,10 +3,10 @@ import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/themes/app_text_styles.dart';
 
 // text✅ - appBar✅ - elebatedButton✅ - textformfield✅ - textButton✅
-// iconButton✅ - bottomAppBar
+// iconButton✅ - ✅bottomAppBar: so sorry i used convex, so see U soon
 class AppTheme {
   /// Light Theme
-  static final ThemeData lightThemes = ThemeData(
+  static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
