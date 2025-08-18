@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
 import 'package:iti_project/features/auth/presentation/views/login_view.dart';
 import 'package:iti_project/features/auth/presentation/views/register_view.dart';
-import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
+import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
 import 'package:iti_project/features/home/presentation/views/home_details_view.dart';
 import 'package:iti_project/features/home/presentation/views/home_view.dart';
-import 'package:iti_project/features/home/presentation/views/profile_view.dart';
-import 'package:iti_project/features/home/presentation/views/setup_profile_view.dart';
+import 'package:iti_project/features/profile/presentation/views/profile_view.dart';
+import 'package:iti_project/features/profile/presentation/views/setup_profile_view.dart';
 import 'package:iti_project/features/onBoarding/presentation/views/on_boarding_view.dart';
 import 'package:iti_project/features/onBoarding/presentation/views/splash_view.dart';
 

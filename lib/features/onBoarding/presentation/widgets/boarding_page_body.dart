@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/features/onBoarding/data/boarding_model.dart';
 import 'package:iti_project/features/onBoarding/presentation/widgets/ellipse_shape.dart';
 import 'package:iti_project/features/onBoarding/presentation/widgets/shoes_boarding.dart';

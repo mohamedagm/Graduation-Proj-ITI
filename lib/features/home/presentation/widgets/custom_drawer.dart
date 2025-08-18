@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key, required this.userModel});

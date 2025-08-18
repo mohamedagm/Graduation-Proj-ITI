@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BottomBoarding extends StatelessWidget {

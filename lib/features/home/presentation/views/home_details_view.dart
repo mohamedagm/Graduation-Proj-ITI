@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
+import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
 import 'package:iti_project/features/home/presentation/widgets/home_details_view_body.dart';
 
 class HomeDetailsView extends StatelessWidget {

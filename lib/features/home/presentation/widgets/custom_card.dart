@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
+import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.productModel});

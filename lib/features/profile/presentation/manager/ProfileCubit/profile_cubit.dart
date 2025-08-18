@@ -4,34 +4,35 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:iti_project/core/errors/firestore_exceptions.dart';
 import 'package:iti_project/core/services/firestore_service.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
 
-part 'setup_profile_state.dart';
+part 'profile_state.dart';
 
-class SetupProfileCubit extends Cubit<SetupProfileState> {
-  SetupProfileCubit(this.firestoreService) : super(SetupProfileInitial());
+class ProfileCubit extends Cubit<ProfileState> {
+  ProfileCubit(this.firestoreService) : super(ProfileInitial());
   final FirestoreService firestoreService;
+
   saveUserDataC(UserModel usermodel) async {
-    emit(SetupProfileLoading());
+    emit(ProfileLoading());
     try {
       await firestoreService.saveUserData(usermodel: usermodel);
-      emit(SetupProfileSuccess(user: usermodel));
+      emit(ProfileSuccess(user: usermodel));
     } on FirebaseException catch (e) {
-      emit(SetupProfileFailure(FirestoreFailure.fromCode(e.code).errMessage));
+      emit(ProfileFailure(FirestoreFailure.fromCode(e.code).errMessage));
     } catch (e) {
-      emit(SetupProfileFailure(e.toString()));
+      emit(ProfileFailure(e.toString()));
     }
   }
 
   getUserDataC(String uid) async {
-    emit(SetupProfileLoading());
+    emit(ProfileLoading());
     try {
       var user = await firestoreService.getUserData(uid);
-      emit(SetupProfileSuccess(user: user));
+      emit(ProfileSuccess(user: user));
     } on FirebaseException catch (e) {
-      emit(SetupProfileFailure(FirestoreFailure.fromCode(e.code).errMessage));
+      emit(ProfileFailure(FirestoreFailure.fromCode(e.code).errMessage));
     } catch (e) {
-      emit(SetupProfileFailure(e.toString()));
+      emit(ProfileFailure(e.toString()));
     }
   }
 
@@ -44,7 +45,7 @@ class SetupProfileCubit extends Cubit<SetupProfileState> {
       final downloadUrl = await ref.getDownloadURL();
       return downloadUrl;
     } on Exception catch (e) {
-      emit(SetupProfileFailure('errrrrrrrrrrrrrrrrrrror :${e.toString()}'));
+      emit(ProfileFailure('errrrrrrrrrrrrrrrrrrror :${e.toString()}'));
       return 'null';
     }
   }

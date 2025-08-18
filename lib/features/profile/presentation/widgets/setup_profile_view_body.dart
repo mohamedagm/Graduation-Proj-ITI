@@ -1,33 +1,33 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
+import 'package:iti_project/core/routing/app_routes.dart';
 import 'package:iti_project/core/utils/functions/custom_snack_bar.dart';
 import 'package:iti_project/core/utils/validator/other_validations.dart';
 import 'package:iti_project/features/auth/presentation/widgets/custom_button.dart';
 import 'package:iti_project/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
-import 'package:iti_project/features/home/presentation/manager/setupProfileCubit/setup_profile_cubit.dart';
-import 'package:iti_project/features/home/presentation/widgets/profile_image_picker.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
+import 'package:iti_project/features/profile/presentation/manager/ProfileCubit/profile_cubit.dart';
+import 'package:iti_project/features/profile/presentation/widgets/profile_image_picker.dart';
 
-class ProfileViewBody extends StatefulWidget {
-  const ProfileViewBody({super.key, required this.userModel});
-  final UserModel userModel;
-
+class SetupProfileViewBody extends StatefulWidget {
+  const SetupProfileViewBody({super.key, required this.user});
+  final UserCredential user;
   @override
-  State<ProfileViewBody> createState() => _ProfileViewBodyState();
+  State<SetupProfileViewBody> createState() => _SetupProfileViewBodyState();
 }
 
-class _ProfileViewBodyState extends State<ProfileViewBody> {
+class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
   File? image;
-  late String defImg;
   final formKey = GlobalKey<FormState>();
-  late TextEditingController nameController;
-  late TextEditingController phoneController;
-  late TextEditingController cityController;
-  late TextEditingController ageController;
-  late TextEditingController genderController;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
   List<TextEditingController> controllers = [];
   List<String? Function(String?)?> validators = [];
   List<IconData> icons = [];
@@ -36,14 +36,6 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController(text: widget.userModel.name);
-    phoneController = TextEditingController(text: widget.userModel.phone);
-    cityController = TextEditingController(text: widget.userModel.city);
-    ageController = TextEditingController(
-      text: widget.userModel.age.toString(),
-    );
-    genderController = TextEditingController(text: widget.userModel.gender);
-
     controllers = [
       nameController,
       phoneController,
@@ -84,17 +76,18 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SetupProfileCubit, SetupProfileState>(
+    return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
-        if (state is SetupProfileSuccess) {
+        if (state is ProfileSuccess) {
           customSnackBar(
             context,
-            AppStrings.updatedSuccess,
+            AppStrings.savedSuccess,
             backgroundColor: Colors.green,
           );
-          GoRouter.of(context).pop();
-          GoRouter.of(context).pop();
-        } else if (state is SetupProfileFailure) {
+          GoRouter.of(
+            context,
+          ).pushReplacement(AppRoutes.home, extra: widget.user);
+        } else if (state is ProfileFailure) {
           customSnackBar(context, state.errMsg, backgroundColor: Colors.red);
         }
       },
@@ -108,9 +101,8 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                 child: Column(
                   spacing: 24,
                   children: [
-                    SizedBox(height: 5),
                     ProfileImagePicker(
-                      deafultImage: widget.userModel.photoUrl,
+                      deafultImage: '',
                       image: image,
                       onImagePicked: (file) {
                         setState(() {
@@ -139,9 +131,9 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                           //   widget.user.user!.uid,
                           // );
                           final userModel = UserModel(
-                            uid: widget.userModel.uid,
+                            uid: widget.user.user!.uid,
                             name: nameController.text,
-                            email: widget.userModel.email,
+                            email: widget.user.user!.email!,
                             phone: phoneController.text,
                             photoUrl: imageUrl,
                             createdAt: DateTime.now(),
@@ -149,30 +141,27 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                             gender: genderController.text,
                             city: cityController.text,
                           );
-                          bool hasChanged =
-                              nameController.text != widget.userModel.name ||
-                              phoneController.text != widget.userModel.phone ||
-                              imageUrl != widget.userModel.photoUrl ||
-                              ageController.text !=
-                                  widget.userModel.age.toString() ||
-                              genderController.text !=
-                                  widget.userModel.gender ||
-                              cityController.text != widget.userModel.city;
-                          if (hasChanged) {
-                            context.read<SetupProfileCubit>().saveUserDataC(
-                              userModel,
-                            );
-                          }
+                          context.read<ProfileCubit>().saveUserDataC(
+                            userModel,
+                          );
                         }
                       },
                       child:
-                          state is SetupProfileLoading
+                          state is ProfileLoading
                               ? SizedBox(
                                 height: 32,
                                 width: 32,
                                 child: CircularProgressIndicator(),
                               )
-                              : Text(AppStrings.updateButton),
+                              : Text(AppStrings.saveButton),
+                    ),
+                    CustomButton(
+                      onPressed: () {
+                        for (var co in controllers) {
+                          co.clear();
+                        }
+                      },
+                      child: Text(AppStrings.resetButton),
                     ),
                   ],
                 ),

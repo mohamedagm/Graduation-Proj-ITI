@@ -5,10 +5,10 @@ import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/services/firestore_service.dart';
 import 'package:iti_project/core/services/setup_service.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
-import 'package:iti_project/features/home/presentation/manager/setupProfileCubit/setup_profile_cubit.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
+import 'package:iti_project/features/profile/presentation/manager/ProfileCubit/profile_cubit.dart';
 import 'package:iti_project/features/home/presentation/widgets/custom_app_bar.dart';
-import 'package:iti_project/features/home/presentation/widgets/profile_view_body.dart';
+import 'package:iti_project/features/profile/presentation/widgets/profile_view_body.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key, required this.user});
@@ -27,7 +27,7 @@ class ProfileView extends StatelessWidget {
         ),
       ),
       body: BlocProvider(
-        create: (context) => SetupProfileCubit(getIt.get<FirestoreService>()),
+        create: (context) => ProfileCubit(getIt.get<FirestoreService>()),
         child: ProfileViewBody(userModel: user),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
+import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
 import 'package:iti_project/features/home/presentation/manager/productsCubit/products_cubit.dart';
 import 'package:iti_project/features/home/presentation/widgets/custom_card.dart';
 

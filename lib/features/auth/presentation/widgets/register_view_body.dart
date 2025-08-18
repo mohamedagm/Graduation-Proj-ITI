@@ -122,7 +122,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                                 height: 32,
                                 width: 32,
                                 child: CircularProgressIndicator(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               )
                               : Text(AppStrings.registerButtonSignUp),

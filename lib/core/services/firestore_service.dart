@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:iti_project/features/home/data/models/user_model.dart/user_model.dart';
+import 'package:iti_project/features/profile/data/model/user_model.dart/user_model.dart';
 
 class FirestoreService {
   final FirebaseFirestore firestore;

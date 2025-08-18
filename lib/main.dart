@@ -53,3 +53,5 @@ class MainApp extends StatelessWidget {
 // بس وبعد كدا تكمل ف باقي المشروع وتشوف اي فاضل
 // زي الثيم بالشيرد برفرنس والسايفد بالهايف وبس كدا اظن يكفي حبة حبشتكنات
 // انميشنز - شمر لودينج رايق كدا - غيرهم لو ف بالي حاجه تاني
+
+// Shared CustomAppBar CustomAppbarLeading CustomTextField CustomButton
