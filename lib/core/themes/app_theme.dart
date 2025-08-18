@@ -79,18 +79,6 @@ class AppTheme {
       ),
     ),
 
-    bottomAppBarTheme: const BottomAppBarTheme(
-      elevation: 8,
-      color: Colors.white,
-      surfaceTintColor: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      shape: AutomaticNotchedShape(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-      ),
-    ),
-
     textTheme: AppTextStyles.textTheme,
   );
 
@@ -167,19 +155,6 @@ class AppTheme {
         backgroundColor: WidgetStateProperty.all(Colors.white),
       ),
     ),
-
-    bottomAppBarTheme: const BottomAppBarTheme(
-      elevation: 8,
-      color: Color(0xff111318),
-      surfaceTintColor: Color(0xff111318),
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      shape: AutomaticNotchedShape(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
-      ),
-    ),
-
     textTheme: AppTextStyles.textTheme,
   );
 }

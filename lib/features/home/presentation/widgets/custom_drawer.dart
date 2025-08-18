@@ -31,9 +31,9 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text("Settings"),
+            title: Text(AppStrings.settings),
             onTap: () {
-              // Navigate to settings
+              GoRouter.of(context).push(AppRoutes.settings, extra: userModel);
             },
           ),
           const Spacer(),

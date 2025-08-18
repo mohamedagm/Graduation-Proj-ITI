@@ -170,7 +170,9 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                               ? SizedBox(
                                 height: 32,
                                 width: 32,
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                ),
                               )
                               : Text(AppStrings.updateButton),
                     ),

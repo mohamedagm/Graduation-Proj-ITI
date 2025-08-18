@@ -17,10 +17,11 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
   TextEditingController? controller;
   int currIndex = 0;
   ProductModel productModel = ProductModel();
+  List<String> categories = ['mens-shoes', 'womens-shoes'];
   @override
   void initState() {
     super.initState();
-    context.read<ProductsCubit>().getProductsC();
+    context.read<ProductsCubit>().getProductsC(category: 'mens-shoes');
   }
 
   @override
@@ -43,18 +44,31 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
                   picon: Icons.search,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(5, (index) {
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(2, (index) {
                     bool exp = index == currIndex ? true : false;
                     return GestureDetector(
                       onTap: () {
+                        index == 0
+                            ? context.read<ProductsCubit>().getProductsC(
+                              category: categories[0],
+                            )
+                            : context.read<ProductsCubit>().getProductsC(
+                              category: categories[1],
+                            );
                         setState(() {
                           currIndex = index;
                         });
                       },
                       child: Container(
-                        width: exp ? 80 : 55,
-                        height: exp ? 35 : 32,
+                        width:
+                            exp
+                                ? MediaQuery.of(context).size.width * 0.65
+                                : MediaQuery.of(context).size.width * 0.2,
+                        height:
+                            exp
+                                ? MediaQuery.of(context).size.height * 0.04
+                                : MediaQuery.of(context).size.height * 0.035,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.horizontal(
                             left: Radius.circular(16),
@@ -64,7 +78,7 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
                         ),
                         child: Center(
                           child: Text(
-                            AppStrings.homeNike,
+                            index == 0 ? AppStrings.men : AppStrings.women,
                             style: TextStyle(
                               color: exp ? Colors.white : Colors.black,
                             ),

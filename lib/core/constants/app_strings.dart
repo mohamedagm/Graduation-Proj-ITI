@@ -63,11 +63,13 @@ class AppStrings {
   static const homeAppbartext1 = 'Store location';
   static const homeAppbartext2 = '📍Egypt, naser city';
   static const String homeSearchHint = 'Looking for shoes';
-  static const String homeNike = 'Nike';
+  static const String men = 'Mens';
+  static const String women = 'Womens';
   //homeDetails
   static const String homeDetailsPrice = 'Price';
   static const String homeDetailsAddToCard = 'Add To Cart';
 
   //drawer
   static const String profile = 'Profile';
+  static const String settings = 'Settings';
 }
