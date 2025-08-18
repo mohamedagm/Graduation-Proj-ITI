@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
 import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
-import 'package:iti_project/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:iti_project/core/widgets/custom_app_bar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeDetailsViewTopSection extends StatelessWidget {

@@ -8,7 +8,7 @@ import 'package:iti_project/core/services/setup_service.dart';
 import 'package:iti_project/core/themes/themeCubit/theme_cubit.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
 import 'package:iti_project/features/home/presentation/manager/productsCubit/products_cubit.dart';
-import 'package:iti_project/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:iti_project/core/widgets/custom_app_bar.dart';
 import 'package:iti_project/features/home/presentation/widgets/custom_bottom_app_bar.dart';
 import 'package:iti_project/features/home/presentation/widgets/custom_drawer.dart';
 import 'package:iti_project/features/home/presentation/widgets/home_view_body_products.dart';

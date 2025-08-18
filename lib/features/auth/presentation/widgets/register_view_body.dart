@@ -8,8 +8,8 @@ import 'package:iti_project/core/utils/functions/custom_snack_bar.dart';
 import 'package:iti_project/core/utils/validator/validation_email_method.dart';
 import 'package:iti_project/core/utils/validator/validation_password_method.dart';
 import 'package:iti_project/features/auth/presentation/Manager/authCubit/auth_cubit.dart';
-import 'package:iti_project/features/auth/presentation/widgets/custom_button.dart';
-import 'package:iti_project/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:iti_project/core/widgets/custom_button.dart';
+import 'package:iti_project/core/widgets/custom_text_field.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
