@@ -20,25 +20,14 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.bodyMedium,
       obscureText: visible!,
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.white,
         hintText: hintText,
         prefixIcon: Icon(picon),
         suffixIcon: sicon,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: AppColors.primary, width: 2),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(32),
-          borderSide: BorderSide(color: AppColors.backgroundLight),
-        ),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
-        contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       ),
     );
   }

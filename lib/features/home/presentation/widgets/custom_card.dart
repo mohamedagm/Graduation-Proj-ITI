@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/features/home/data/models/product_model/product_model.dart';
 
 class CustomCard extends StatelessWidget {
@@ -47,9 +46,9 @@ class CustomCard extends StatelessWidget {
                       productModel.title!,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.bodyLarge.copyWith(
-                        color: Colors.black,
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyLarge!.copyWith(color: Colors.black),
                     ),
                   ),
                   Padding(
@@ -59,9 +58,9 @@ class CustomCard extends StatelessWidget {
                       children: [
                         Text(
                           '\$${productModel.price!}',
-                          style: AppTextStyles.bodySmall.copyWith(
-                            color: Colors.black,
-                          ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodySmall!.copyWith(color: Colors.black),
                         ),
                         Container(
                           height: 28,

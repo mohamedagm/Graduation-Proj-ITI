@@ -33,10 +33,7 @@ class HomeDetailsViewTopSection extends StatelessWidget {
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.local_mall)),
             ],
-            title: Text(
-              'Men’s Shoes',
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
+            title: Text('Men’s Shoes'),
           ),
 
           //pageview

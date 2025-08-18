@@ -35,6 +35,10 @@ abstract class AppTextStyles {
     titleLarge: AppTextStyles.titleLarge, // 20, w400
     titleMedium: AppTextStyles.titleMedium, // 18, w500
     bodyLarge: AppTextStyles.bodyLarge, // 16, w800
+    bodyMedium: TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.w700,
+    ), //Just for InputD
     bodySmall: AppTextStyles.bodySmall, // 14, w500
     labelSmall: AppTextStyles.labelSmall, // 12, w400
   );

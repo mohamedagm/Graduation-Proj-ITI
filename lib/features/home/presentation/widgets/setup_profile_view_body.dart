@@ -3,10 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/core/utils/functions/custom_snack_bar.dart';
 import 'package:iti_project/core/utils/validator/other_validations.dart';
 import 'package:iti_project/features/auth/presentation/widgets/custom_button.dart';
@@ -98,72 +96,75 @@ class _SetupProfileViewBodyState extends State<SetupProfileViewBody> {
           child: SingleChildScrollView(
             child: Form(
               key: formKey,
-              child: Column(
-                spacing: 24,
-                children: [
-                  ProfileImagePicker(
-                    deafultImage: '',
-                    image: image,
-                    onImagePicked: (file) {
-                      setState(() {
-                        image = file;
-                      });
-                    },
-                  ),
-                  Column(
-                    spacing: 15,
-                    children: List.generate(
-                      5,
-                      (index) => CustomTextField(
-                        hintText: hints[index],
-                        controller: controllers[index],
-                        validator: validators[index],
-                        picon: icons[index],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  spacing: 24,
+                  children: [
+                    ProfileImagePicker(
+                      deafultImage: '',
+                      image: image,
+                      onImagePicked: (file) {
+                        setState(() {
+                          image = file;
+                        });
+                      },
+                    ),
+                    Column(
+                      spacing: 15,
+                      children: List.generate(
+                        5,
+                        (index) => CustomTextField(
+                          hintText: hints[index],
+                          controller: controllers[index],
+                          validator: validators[index],
+                          picon: icons[index],
+                        ),
                       ),
                     ),
-                  ),
-                  CustomButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        String imageUrl = AppStrings.setupDefImage;
-                        // context.read<SetupProfileCubit>().uploadProfileImage(
-                        //   image!,
-                        //   widget.user.user!.uid,
-                        // );
-                        final userModel = UserModel(
-                          uid: widget.user.user!.uid,
-                          name: nameController.text,
-                          email: widget.user.user!.email!,
-                          phone: phoneController.text,
-                          photoUrl: imageUrl,
-                          createdAt: DateTime.now(),
-                          age: int.parse(ageController.text),
-                          gender: genderController.text,
-                          city: cityController.text,
-                        );
-                        context.read<SetupProfileCubit>().saveUserDataC(
-                          userModel,
-                        );
-                      }
-                    },
-                    child:
-                        state is SetupProfileLoading
-                            ? SizedBox(
-                              height: 32,
-                              width: 32,
-                              child: CircularProgressIndicator(),
-                            )
-                            : Text(AppStrings.saveButton),
-                  ),
-                  CustomButton(
-                    onPressed: () {
-                      for (var co in controllers) {
-                        co.clear();
-                      }
-                    },
-                    child: Text(AppStrings.resetButton),
-                  ),
-                ],
+                    CustomButton(
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          String imageUrl = AppStrings.setupDefImage;
+                          // context.read<SetupProfileCubit>().uploadProfileImage(
+                          //   image!,
+                          //   widget.user.user!.uid,
+                          // );
+                          final userModel = UserModel(
+                            uid: widget.user.user!.uid,
+                            name: nameController.text,
+                            email: widget.user.user!.email!,
+                            phone: phoneController.text,
+                            photoUrl: imageUrl,
+                            createdAt: DateTime.now(),
+                            age: int.parse(ageController.text),
+                            gender: genderController.text,
+                            city: cityController.text,
+                          );
+                          context.read<SetupProfileCubit>().saveUserDataC(
+                            userModel,
+                          );
+                        }
+                      },
+                      child:
+                          state is SetupProfileLoading
+                              ? SizedBox(
+                                height: 32,
+                                width: 32,
+                                child: CircularProgressIndicator(),
+                              )
+                              : Text(AppStrings.saveButton),
+                    ),
+                    CustomButton(
+                      onPressed: () {
+                        for (var co in controllers) {
+                          co.clear();
+                        }
+                      },
+                      child: Text(AppStrings.resetButton),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

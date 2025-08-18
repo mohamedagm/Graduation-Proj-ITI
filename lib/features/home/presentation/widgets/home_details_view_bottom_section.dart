@@ -24,7 +24,7 @@ class _HomeDetailsViewBottomSectionState
       height: MediaQuery.of(context).size.height * 0.6,
       width: double.maxFinite,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Padding(
@@ -37,15 +37,15 @@ class _HomeDetailsViewBottomSectionState
               // title,price,desc
               Text(
                 widget.productModel.title!,
-                style: AppTextStyles.displayMedium,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               Text(
                 '\$${widget.productModel.price}',
-                style: AppTextStyles.titleLarge,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               Text(
                 widget.productModel.description!,
-                style: AppTextStyles.titleMedium,
+                style: Theme.of(context).textTheme.titleMedium,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -63,14 +63,14 @@ class _HomeDetailsViewBottomSectionState
                         child: Text(
                           '${widget.productModel.availabilityStatus} '
                           '${widget.productModel.stock}',
-                          style: AppTextStyles.bodyLarge,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),
                       CustomDetailsInfoContainer(
                         widthRatio: 0.4,
                         child: Text(
                           widget.productModel.warrantyInformation.toString(),
-                          style: AppTextStyles.bodyLarge,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),
                     ],
@@ -79,7 +79,7 @@ class _HomeDetailsViewBottomSectionState
                     widthRatio: 0.7,
                     child: Text(
                       '${widget.productModel.shippingInformation}',
-                      style: AppTextStyles.bodyLarge,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                 ],
@@ -89,7 +89,7 @@ class _HomeDetailsViewBottomSectionState
               Center(
                 child: Text(
                   'size ${widget.productModel.tags.toString()}',
-                  style: AppTextStyles.titleLarge,
+                  style: Theme.of(context).textTheme.titleLarge,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -151,7 +151,7 @@ class _HomeDetailsViewBottomSectionState
                       Text(AppStrings.homeDetailsPrice),
                       Text(
                         '\$${widget.productModel.price}',
-                        style: AppTextStyles.titleLarge,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ],
                   ),
@@ -166,7 +166,7 @@ class _HomeDetailsViewBottomSectionState
                     ),
                     child: Text(
                       AppStrings.homeDetailsAddToCard,
-                      style: AppTextStyles.titleLarge,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ],

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_assets.dart';
-import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/core/utils/functions/custom_snack_bar.dart';
 import 'package:iti_project/core/utils/validator/validation_email_method.dart';
 import 'package:iti_project/core/utils/validator/validation_password_method.dart';
@@ -38,14 +36,19 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) async {
         if (state is AuthSuccess) {
-          customSnackBar(
-            context,
-            AppStrings.registerSuccessMessage,
-            backgroundColor: Colors.green,
-          );
           if (state.user.additionalUserInfo!.isNewUser) {
+            customSnackBar(
+              context,
+              AppStrings.registerSuccessMessage,
+              backgroundColor: Colors.green,
+            );
             GoRouter.of(context).push(AppRoutes.setup, extra: state.user);
           } else {
+            customSnackBar(
+              context,
+              AppStrings.loginSuccessMessage,
+              backgroundColor: Colors.green,
+            );
             GoRouter.of(context).push(AppRoutes.home, extra: state.user);
           }
         } else if (state is AuthFailure) {
@@ -71,13 +74,13 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   children: [
                     Text(
                       AppStrings.registerTitle,
-                      style: AppTextStyles.displayLarge.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
                       AppStrings.registerSubtitle,
-                      style: AppTextStyles.titleLarge,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
@@ -118,7 +121,9 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                               ? const SizedBox(
                                 height: 32,
                                 width: 32,
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: Colors.black,
+                                ),
                               )
                               : Text(AppStrings.registerButtonSignUp),
                     ),
@@ -137,7 +142,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                           const SizedBox(width: 5),
                           Text(
                             AppStrings.authGoogleSignIn,
-                            style: AppTextStyles.titleMedium,
+                            style: Theme.of(context).textTheme.titleMedium!
+                                .copyWith(color: Colors.black),
                           ),
                         ],
                       ),
@@ -147,16 +153,13 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       children: [
                         Text(
                           AppStrings.registerHaveAccount,
-                          style: AppTextStyles.titleMedium,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         TextButton(
                           onPressed: () {
                             GoRouter.of(context).push(AppRoutes.login);
                           },
-                          child: Text(
-                            AppStrings.registerLogin,
-                            style: AppTextStyles.titleMedium,
-                          ),
+                          child: Text(AppStrings.registerLogin),
                         ),
                       ],
                     ),

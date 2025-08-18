@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/themes/app_text_styles.dart';
 
-// text✅ - appBar✅ - elebatedButton✅ - textformfield - bottomAppBar
+// text✅ - appBar✅ - elebatedButton✅ - textformfield✅ - textButton✅
+// iconButton✅ - bottomAppBar
 class AppTheme {
   /// Light Theme
-  static final ThemeData lightTheme = ThemeData(
+  static final ThemeData lightThemes = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
@@ -19,7 +20,6 @@ class AppTheme {
       onError: Colors.white,
     ),
     scaffoldBackgroundColor: AppColors.backgroundLight,
-    // AppBar
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -30,7 +30,13 @@ class AppTheme {
       actionsIconTheme: IconThemeData(color: AppColors.primary),
       actionsPadding: const EdgeInsets.only(right: 16.0),
     ),
-    // ElevatedButton
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStateProperty.all(AppColors.primary),
+        padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 16)),
+        textStyle: WidgetStateProperty.all(AppTextStyles.bodyLarge),
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         minimumSize: WidgetStateProperty.all(const Size(125, 55)),
@@ -50,57 +56,29 @@ class AppTheme {
         textStyle: WidgetStateProperty.all(AppTextStyles.titleLarge),
       ),
     ),
-    // TextFormField (InputDecorationTheme)
     inputDecorationTheme: InputDecorationTheme(
-      isDense: true,
       filled: true,
       fillColor: Colors.white,
-      hintStyle: const TextStyle(color: AppColors.hint),
-      labelStyle: const TextStyle(
-        color: AppColors.hint,
-        fontWeight: FontWeight.w600,
-      ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      hintStyle: TextStyle(color: AppColors.hint),
       prefixIconColor: AppColors.hint,
       suffixIconColor: AppColors.hint,
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.backgroundLight),
-      ),
-      disabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
-          color: AppColors.backgroundLight.withOpacity(0.6),
-        ),
-      ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.primary, width: 1.6),
+        borderRadius: BorderRadius.circular(32),
+        borderSide: BorderSide(color: AppColors.primary, width: 2),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Colors.red),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(32),
+        borderSide: BorderSide(color: AppColors.backgroundLight),
       ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Colors.red, width: 1.6),
-      ),
-      helperStyle: const TextStyle(color: AppColors.textDark, fontSize: 12),
-      errorStyle: const TextStyle(
-        color: Colors.red,
-        fontSize: 12,
-        fontWeight: FontWeight.w600,
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+      contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
     ),
-
-    textTheme: AppTextStyles.textTheme,
-
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(Colors.white),
       ),
     ),
-    // BottomAppBar
+
     bottomAppBarTheme: const BottomAppBarTheme(
       elevation: 8,
       color: Colors.white,
@@ -112,10 +90,12 @@ class AppTheme {
         ),
       ),
     ),
+
+    textTheme: AppTextStyles.textTheme,
   );
 
   /// Dark Theme
-  static final ThemeData darkThemes = ThemeData(
+  static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     primaryColor: Colors.black,
@@ -129,7 +109,6 @@ class AppTheme {
       onError: Colors.white,
     ),
     scaffoldBackgroundColor: Colors.black,
-
     appBarTheme: AppBarTheme(
       elevation: 0,
       centerTitle: true,
@@ -140,7 +119,13 @@ class AppTheme {
       actionsIconTheme: IconThemeData(color: AppColors.primary),
       actionsPadding: const EdgeInsets.only(right: 16.0),
     ),
-
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStateProperty.all(AppColors.primary),
+        padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 16)),
+        textStyle: WidgetStateProperty.all(AppTextStyles.bodyLarge),
+      ),
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         minimumSize: WidgetStateProperty.all(const Size(125, 55)),
@@ -161,51 +146,22 @@ class AppTheme {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      isDense: true,
       filled: true,
-      fillColor: const Color(0xff111318),
-      hintStyle: TextStyle(color: AppColors.hint.withOpacity(0.9)),
-      labelStyle: const TextStyle(
-        color: Colors.white70,
-        fontWeight: FontWeight.w600,
-      ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      fillColor: Colors.white,
+      hintStyle: TextStyle(color: AppColors.hint),
       prefixIconColor: AppColors.hint,
       suffixIconColor: AppColors.hint,
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
-          color: AppColors.backgroundDark.withOpacity(0.7),
-        ),
-      ),
-      disabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
-          color: AppColors.backgroundDark.withOpacity(0.4),
-        ),
-      ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.primary, width: 1.6),
+        borderRadius: BorderRadius.circular(32),
+        borderSide: BorderSide(color: AppColors.primary, width: 2),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Colors.red),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(32),
+        borderSide: BorderSide(color: AppColors.backgroundLight),
       ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Colors.red, width: 1.6),
-      ),
-      helperStyle: const TextStyle(color: Colors.white70, fontSize: 12),
-      errorStyle: const TextStyle(
-        color: Colors.red,
-        fontSize: 12,
-        fontWeight: FontWeight.w600,
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+      contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
     ),
-
-    textTheme: AppTextStyles.textTheme,
-
     iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(Colors.white),
@@ -223,5 +179,7 @@ class AppTheme {
         ),
       ),
     ),
+
+    textTheme: AppTextStyles.textTheme,
   );
 }

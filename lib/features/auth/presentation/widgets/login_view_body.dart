@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_assets.dart';
-import 'package:iti_project/core/constants/app_colors.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/routing/app_routes.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/core/utils/functions/custom_snack_bar.dart';
 import 'package:iti_project/core/utils/validator/validation_email_method.dart';
 import 'package:iti_project/core/utils/validator/validation_password_method.dart';
@@ -71,13 +69,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   children: [
                     Text(
                       AppStrings.loginTitle,
-                      style: AppTextStyles.displayLarge.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
                       AppStrings.loginSubTitle,
-                      style: AppTextStyles.titleLarge,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     SizedBox(height: 10),
                     CustomTextField(
@@ -108,10 +106,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       alignment: Alignment.topRight,
                       child: TextButton(
                         onPressed: () {},
-                        child: Text(
-                          AppStrings.loginRecoveryPassword,
-                          style: AppTextStyles.bodySmall,
-                        ),
+                        child: Text(AppStrings.loginRecoveryPassword),
                       ),
                     ),
                     CustomButton(
@@ -128,7 +123,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               ? SizedBox(
                                 height: 32,
                                 width: 32,
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: Colors.black,
+                                ),
                               )
                               : Text(AppStrings.loginButtonSignIn),
                     ),
@@ -147,26 +144,24 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           const SizedBox(width: 5),
                           Text(
                             AppStrings.authGoogleSignIn,
-                            style: AppTextStyles.titleMedium,
+                            style: Theme.of(context).textTheme.titleMedium!
+                                .copyWith(color: Colors.black),
                           ),
                         ],
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
                           AppStrings.loginNoAccount,
-                          style: AppTextStyles.titleMedium,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
                         TextButton(
                           onPressed: () {
                             GoRouter.of(context).push(AppRoutes.register);
                           },
-                          child: Text(
-                            AppStrings.loginSignUpFree,
-                            style: AppTextStyles.titleMedium,
-                          ),
+                          child: Text(AppStrings.loginSignUpFree),
                         ),
                       ],
                     ),

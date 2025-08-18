@@ -36,7 +36,7 @@ class CustomDrawer extends StatelessWidget {
               // Navigate to settings
             },
           ),
-          const Spacer(), // يزحف بالـ Logout لتحت
+          const Spacer(),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text("Logout"),

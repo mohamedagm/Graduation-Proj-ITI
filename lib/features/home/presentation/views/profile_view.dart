@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/services/firestore_service.dart';
 import 'package:iti_project/core/services/setup_service.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
@@ -17,7 +18,7 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: Text('Profile'),
+        title: Text(AppStrings.profile),
         leadingWidget: CustomAppbarLeading(
           icon: Icons.keyboard_arrow_left,
           onPressed: () {

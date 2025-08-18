@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/services/firestore_service.dart';
 import 'package:iti_project/core/services/setup_service.dart';
-import 'package:iti_project/core/themes/app_text_styles.dart';
 import 'package:iti_project/core/themes/themeCubit/theme_cubit.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
 import 'package:iti_project/features/home/presentation/manager/productsCubit/products_cubit.dart';
@@ -60,7 +59,10 @@ class HomeView extends StatelessWidget {
         ],
         title: Column(
           children: [
-            Text(AppStrings.homeAppbartext1, style: AppTextStyles.labelSmall),
+            Text(
+              AppStrings.homeAppbartext1,
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
             Text(AppStrings.homeAppbartext2),
           ],
         ),
