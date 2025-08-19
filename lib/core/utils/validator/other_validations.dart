@@ -1,4 +1,3 @@
-// validation_name.dart
 String? Function(String?) validationNameMethod() {
   return (value) {
     if (value == null || value.trim().isEmpty) {
@@ -8,7 +7,6 @@ String? Function(String?) validationNameMethod() {
   };
 }
 
-// validation_phone.dart
 String? Function(String?) validationPhoneMethod() {
   return (value) {
     if (value == null || value.trim().isEmpty) {
@@ -20,7 +18,6 @@ String? Function(String?) validationPhoneMethod() {
   };
 }
 
-// validation_city.dart
 String? Function(String?) validationCityMethod() {
   return (value) {
     if (value == null || value.trim().isEmpty) {
@@ -30,7 +27,6 @@ String? Function(String?) validationCityMethod() {
   };
 }
 
-// validation_age.dart
 String? Function(String?) validationAgeMethod() {
   return (value) {
     if (value == null || value.trim().isEmpty) {
@@ -43,7 +39,6 @@ String? Function(String?) validationAgeMethod() {
   };
 }
 
-// validation_gender.dart
 String? Function(String?) validationGenderMethod() {
   return (value) {
     if (value == null || value.trim().isEmpty) {

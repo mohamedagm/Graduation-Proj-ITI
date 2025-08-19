@@ -9,12 +9,32 @@ part 'products_state.dart';
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit(this.dio) : super(ProductsInitial());
   final Dio dio;
+  List<ProductModel> productListC = [];
   getProductsC({required String category}) async {
     emit(ProductsLoading());
     try {
       List<ProductModel> productList = [];
       var result = await dio.get(
         'https://dummyjson.com/products/category/$category',
+      );
+      for (var product in result.data['products']) {
+        productList.add(ProductModel.fromJson(product));
+      }
+      emit(ProductsSuccess(productList));
+      productListC = productList;
+    } on DioException catch (e) {
+      emit(ProductsFailure(DioProductsExceptions.fromDioError(e).errMessage));
+    } catch (e) {
+      emit(ProductsFailure(e.toString()));
+    }
+  }
+
+  searchProductsC({required String word}) async {
+    emit(ProductsLoading());
+    try {
+      List<ProductModel> productList = [];
+      var result = await dio.get(
+        'https://dummyjson.com/products/search?q=$word',
       );
       for (var product in result.data['products']) {
         productList.add(ProductModel.fromJson(product));

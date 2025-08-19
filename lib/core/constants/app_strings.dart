@@ -65,6 +65,8 @@ class AppStrings {
   static const String homeSearchHint = 'Looking for shoes';
   static const String men = 'Mens';
   static const String women = 'Womens';
+  static const String shirt = 'T-shirts';
+  static const String dress = 'Dresses';
   //homeDetails
   static const String homeDetailsPrice = 'Price';
   static const String homeDetailsAddToCard = 'Add To Cart';
@@ -72,4 +74,6 @@ class AppStrings {
   //drawer
   static const String profile = 'Profile';
   static const String settings = 'Settings';
+  static const String search = 'Search';
+  static const String productinfo = 'Product Information';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iti_project/core/constants/app_colors.dart';
+import 'package:iti_project/core/constants/app_strings.dart';
 import 'package:iti_project/core/widgets/custom_app_bar_leading.dart';
 import 'package:iti_project/features/home/data/model/product_model/product_model.dart';
 import 'package:iti_project/core/widgets/custom_app_bar.dart';
@@ -33,7 +34,7 @@ class HomeDetailsViewTopSection extends StatelessWidget {
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.local_mall)),
             ],
-            title: Text('Men’s Shoes'),
+            title: Text(AppStrings.productinfo),
           ),
 
           //pageview
@@ -43,7 +44,7 @@ class HomeDetailsViewTopSection extends StatelessWidget {
             child: PageView(
               controller: pageController,
               children: List.generate(
-                4,
+                productModel.images!.length,
                 (index) => Image.network(productModel.images![index]),
               ),
             ),

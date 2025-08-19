@@ -68,7 +68,10 @@ class HomeView extends StatelessWidget {
         ),
       ),
       body: BlocProvider(
-        create: (context) => ProductsCubit(getIt.get<Dio>()),
+        create:
+            (context) =>
+                ProductsCubit(getIt.get<Dio>())
+                  ..getProductsC(category: 'mens-shoes'),
         child: HomeViewBodyProducts(),
       ),
       bottomNavigationBar: CustomBottomAppBar(),

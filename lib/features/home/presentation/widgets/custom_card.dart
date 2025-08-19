@@ -97,7 +97,7 @@ class CustomCard extends StatelessWidget {
             child: Image.network(
               height: 125,
               width: 125,
-              productModel.images![1],
+              productModel.images![0],
             ),
           ),
         ],
