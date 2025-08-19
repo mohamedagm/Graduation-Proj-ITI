@@ -68,14 +68,15 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
                   setState(() {
                     currIndex = index;
                   });
-                  if (!isPressedCategory[0] && currIndex == 0) {
-                    await context.read<ProductsCubit>().getProductsC(
-                      category: categories[0],
-                    );
-                    mens = context.read<ProductsCubit>().productListC;
-                    print(mens.length);
-                    isPressedCategory[0] = true;
-                  } else if (!isPressedCategory[1] && currIndex == 1) {
+                  // if (!isPressedCategory[0] && currIndex == 0) {
+                  //   await context.read<ProductsCubit>().getProductsC(
+                  //     category: categories[0],
+                  //   );
+                  //   mens = context.read<ProductsCubit>().productListC;
+                  //   print(mens.length);
+                  //   isPressedCategory[0] = true;
+                  // } else
+                  if (!isPressedCategory[1] && currIndex == 1) {
                     await context.read<ProductsCubit>().getProductsC(
                       category: categories[1],
                     );
@@ -97,9 +98,10 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
                     print(dresses.length);
                     isPressedCategory[3] = true;
                   }
-                  if (currIndex == 0) {
-                    current = mens;
-                  } else if (currIndex == 1) {
+                  // if (currIndex == 0) {
+                  //   current = mens;
+                  // } else
+                  if (currIndex == 1) {
                     current = womens;
                   } else if (currIndex == 2) {
                     current = shirts;
@@ -155,10 +157,18 @@ class _HomeViewBodyProductsState extends State<HomeViewBodyProducts> {
                       ),
                       itemBuilder: (context, index) {
                         return SizedBox(
-                          child: CustomCard(productModel: current[index]),
+                          child: CustomCard(
+                            productModel:
+                                current.isEmpty
+                                    ? state.productList[index]
+                                    : current[index],
+                          ),
                         );
                       },
-                      itemCount: current.length,
+                      itemCount:
+                          current.isEmpty
+                              ? state.productList.length
+                              : current.length,
                     ),
                   ),
                 );
